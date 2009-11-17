@@ -9,11 +9,12 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.4/%{name}-%{version}.
 URL:		http://www.gnumeric.org/
 BuildRequires:	autoconf >= 2.54
 BuildRequires:	automake >= 1:1.7.1
-BuildRequires:	gettext
+BuildRequires:	gettext-devel
 BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	gnome-common
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
-BuildRequires:	libsoup-devel
+BuildRequires:	libsoup-gnome-devel
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
