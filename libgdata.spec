@@ -1,29 +1,32 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.4.0
+Version:	0.6.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	06b14f1cd96432b0717ed03fe013ca4d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	2cc787d66af35c2b2f108921ca969f9f
 URL:		http://www.gnumeric.org/
-BuildRequires:	autoconf >= 2.54
-BuildRequires:	automake >= 1:1.7.1
+BuildRequires:	autoconf >= 2.63
+BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel
-BuildRequires:	glib2-devel >= 1:2.16.0
+BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common
+BuildRequires:	gobject-introspection-devel >= 0.6.7
+BuildRequires:	gtk+2-devel
 BuildRequires:	gtk-doc
-BuildRequires:	intltool
-BuildRequires:	libsoup-gnome-devel
+BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libsoup-gnome-devel >= 2.26.1
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-libgdata is a GLib-based library for accessing online service APIs using the
-GData protocol - most notably, Google's services. It provides APIs to access
-the common Google services, and has full asynchronous support.
+libgdata is a GLib-based library for accessing online service APIs
+using the GData protocol - most notably, Google's services. It
+provides APIs to access the common Google services, and has full
+asynchronous support.
 
 %package devel
 Summary:	Support files necessary to compile applications with libgdata
@@ -64,6 +67,7 @@ libgdata API documentation.
 %{__autoheader}
 %{__automake}
 %configure \
+	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir}
 %{__make}
 
@@ -85,11 +89,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README NEWS
 %attr(755,root,root) %{_libdir}/libgdata.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgdata.so.5
+%attr(755,root,root) %ghost %{_libdir}/libgdata.so.7
+%{_libdir}/girepository-1.0/GData-0.0.typelib
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgdata.so
+%{_datadir}/gir-1.0/GData-0.0.gir
 %{_libdir}/libgdata.la
 %{_includedir}/libgdata
 %{_pkgconfigdir}/libgdata.pc
