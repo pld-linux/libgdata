@@ -10,6 +10,7 @@ URL:		http://www.gnumeric.org/
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gettext-devel
+BuildRequires:	gir-repository-devel
 BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 0.6.7
