@@ -32,7 +32,7 @@ asynchronous support.
 Summary:	Support files necessary to compile applications with libgdata
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libsoup-devel
+Requires:	libsoup-gnome-devel >= 2.26.1
 Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
