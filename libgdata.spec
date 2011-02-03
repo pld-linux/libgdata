@@ -1,21 +1,22 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.6.6
+Version:	0.7.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	17e736759dea67d5e9d919fab57fe703
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.7/%{name}-%{version}.tar.bz2
+# Source0-md5:	ec5262cbcb07b63b58d45aa3ac636096
 URL:		http://live.gnome.org/libgdata
-BuildRequires:	autoconf >= 2.63
+BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 0.9.7
-BuildRequires:	gtk+2-devel
-BuildRequires:	gtk-doc
+BuildRequires:	gdk-pixbuf2-devel
+BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libsoup-devel >= 2.26.1
 BuildRequires:	libsoup-gnome-devel >= 2.26.1
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
@@ -90,7 +91,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README NEWS
 %attr(755,root,root) %{_libdir}/libgdata.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgdata.so.7
+%attr(755,root,root) %ghost %{_libdir}/libgdata.so.10
 %{_libdir}/girepository-1.0/GData-0.0.typelib
 
 %files devel
