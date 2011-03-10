@@ -1,19 +1,19 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.7.1
+Version:	0.8.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.7/%{name}-%{version}.tar.bz2
-# Source0-md5:	ec5262cbcb07b63b58d45aa3ac636096
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.8/%{name}-%{version}.tar.bz2
+# Source0-md5:	43ad483c17446dcc7d1c8d3fa49dcc90
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	gdk-pixbuf2-devel >= 2.14
 BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	glib2-devel >= 1:2.20.0
 BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 0.9.7
-BuildRequires:	gdk-pixbuf2-devel
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	libsoup-devel >= 2.26.1
@@ -79,6 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgdata.la
+
 %find_lang gdata
 
 %clean
@@ -91,14 +93,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS README NEWS
 %attr(755,root,root) %{_libdir}/libgdata.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgdata.so.10
+%attr(755,root,root) %ghost %{_libdir}/libgdata.so.11
 %{_libdir}/girepository-1.0/GData-0.0.typelib
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgdata.so
 %{_datadir}/gir-1.0/GData-0.0.gir
-%{_libdir}/libgdata.la
 %{_includedir}/libgdata
 %{_pkgconfigdir}/libgdata.pc
 
