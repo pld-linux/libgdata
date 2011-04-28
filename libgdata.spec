@@ -1,11 +1,11 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.8.0
+Version:	0.8.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.8/%{name}-%{version}.tar.bz2
-# Source0-md5:	43ad483c17446dcc7d1c8d3fa49dcc90
+# Source0-md5:	b36fb3b7a9f3368e0723d5876eb38a38
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
