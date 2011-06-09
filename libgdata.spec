@@ -16,6 +16,7 @@ BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.40.0
+BuildRequires:	libproxy-devel
 BuildRequires:	libsoup-devel >= 2.26.1
 BuildRequires:	libsoup-gnome-devel >= 2.26.1
 BuildRequires:	libtool
