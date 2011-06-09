@@ -1,7 +1,7 @@
 Summary:	GData access library
 Name:		libgdata
 Version:	0.6.6
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL v2+
 Group:		Libraries
@@ -32,7 +32,7 @@ asynchronous support.
 %package devel
 Summary:	Support files necessary to compile applications with libgdata
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libsoup-devel
 Requires:	libxml2-devel >= 1:2.6.26
 
@@ -44,7 +44,7 @@ libgdata.
 Summary:	libgdata static libraries
 Summary(pl.UTF-8):	Statyczne biblioteki libgsf
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 
 %description static
 Package contains static libraries.
