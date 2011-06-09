@@ -78,6 +78,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgdata.la
+
 %find_lang gdata
 
 %clean
@@ -97,7 +99,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libgdata.so
 %{_datadir}/gir-1.0/GData-0.0.gir
-%{_libdir}/libgdata.la
 %{_includedir}/libgdata
 %{_pkgconfigdir}/libgdata.pc
 
