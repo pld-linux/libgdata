@@ -1,6 +1,6 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.11.0
+Version:	0.11.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
@@ -18,8 +18,8 @@ BuildRequires:	gtk+3-devel
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	liboauth-devel >= 0.9.4
-BuildRequires:	libsoup-devel >= 2.26.1
-BuildRequires:	libsoup-gnome-devel >= 2.26.1
+BuildRequires:	libsoup-devel >= 2.37.91
+BuildRequires:	libsoup-gnome-devel >= 2.37.91
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
@@ -37,7 +37,7 @@ asynchronous support.
 Summary:	Support files necessary to compile applications with libgdata
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libsoup-gnome-devel >= 2.26.1
+Requires:	libsoup-gnome-devel >= 2.37.91
 Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
