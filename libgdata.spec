@@ -1,29 +1,31 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.10.2
+Version:	0.11.1
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.10/%{name}-%{version}.tar.xz
-# Source0-md5:	6df3ee0e50c36e918b11d835ec17d4f6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.11/%{name}-%{version}.tar.xz
+# Source0-md5:	4c18b48750e6135a664fd53cbff00a66
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gdk-pixbuf2-devel >= 2.14
 BuildRequires:	gettext-devel >= 0.17
-BuildRequires:	glib2-devel >= 1:2.20.0
+BuildRequires:	glib2-devel >= 1:2.30.0
 BuildRequires:	gnome-common
 BuildRequires:	gobject-introspection-devel >= 0.9.7
+BuildRequires:	gtk+3-devel
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	liboauth-devel >= 0.9.4
-BuildRequires:	libsoup-devel >= 2.26.1
-BuildRequires:	libsoup-gnome-devel >= 2.26.1
+BuildRequires:	libsoup-devel >= 2.38.0
+BuildRequires:	libsoup-gnome-devel >= 2.38.0
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	libsoup >= 2.38.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,7 +38,7 @@ asynchronous support.
 Summary:	Support files necessary to compile applications with libgdata
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	libsoup-gnome-devel >= 2.26.1
+Requires:	libsoup-gnome-devel >= 2.38.0
 Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
