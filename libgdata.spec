@@ -1,11 +1,11 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.11.1
+Version:	0.12.0
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.11/%{name}-%{version}.tar.xz
-# Source0-md5:	4c18b48750e6135a664fd53cbff00a66
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.12/%{name}-%{version}.tar.xz
+# Source0-md5:	ccf0bd3da08a9e86acf704ef71fb73d6
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
@@ -75,7 +75,6 @@ libgdata API documentation.
 %configure \
 	--enable-gtk-doc \
 	--with-html-dir=%{_gtkdocdir} \
-	--with-ca-certs=/etc/certs/ca-certificates.crt \
 	--disable-silent-rules
 %{__make}
 
