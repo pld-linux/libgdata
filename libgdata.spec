@@ -1,18 +1,20 @@
 Summary:	GData access library
 Name:		libgdata
-Version:	0.12.0
+Version:	0.13.2
 Release:	1
 License:	LGPL v2+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.12/%{name}-%{version}.tar.xz
-# Source0-md5:	ccf0bd3da08a9e86acf704ef71fb73d6
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.13/%{name}-%{version}.tar.xz
+# Source0-md5:	8790767a3700d146e859ce870229f8e7
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
+BuildRequires:	gcr-devel
 BuildRequires:	gdk-pixbuf2-devel >= 2.14
 BuildRequires:	gettext-devel >= 0.17
-BuildRequires:	glib2-devel >= 1:2.30.0
-BuildRequires:	gnome-common
+BuildRequires:	glib2-devel >= 1:2.32.0
+BuildRequires:	gnome-common >= 3.6.0
+BuildRequires:	gnome-online-accounts-devel >= 3.2.0
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk+3-devel
 BuildRequires:	gtk-doc >= 1.14
