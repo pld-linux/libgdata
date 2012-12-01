@@ -1,33 +1,38 @@
 Summary:	GData access library
+Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
 Version:	0.13.2
 Release:	1
-License:	LGPL v2+
+License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.13/%{name}-%{version}.tar.xz
 # Source0-md5:	8790767a3700d146e859ce870229f8e7
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
-BuildRequires:	gcr-devel
+BuildRequires:	gcr-devel >= 3
 BuildRequires:	gdk-pixbuf2-devel >= 2.14
 BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gnome-common >= 3.6.0
 BuildRequires:	gnome-online-accounts-devel >= 3.2.0
 BuildRequires:	gobject-introspection-devel >= 0.9.7
-BuildRequires:	gtk+3-devel
+BuildRequires:	gtk+3-devel >= 3.0
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	liboauth-devel >= 0.9.4
 BuildRequires:	libsoup-devel >= 2.38.0
 BuildRequires:	libsoup-gnome-devel >= 2.38.0
-BuildRequires:	libtool
+BuildRequires:	libtool >= 2:2
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
+Requires:	glib2 >= 1:2.32.0
+Requires:	gnome-online-accounts >= 3.2.0
+Requires:	liboauth >= 0.9.4
 Requires:	libsoup >= 2.38.0
+Requires:	libsoup-gnome >= 2.38.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -36,33 +41,56 @@ using the GData protocol - most notably, Google's services. It
 provides APIs to access the common Google services, and has full
 asynchronous support.
 
+%description -l pl.UTF-8
+libgdata to oparta na GLibie biblioteka służąca do dostępu do API
+serwisów sieciowych przy użyciu protokołu GData - głównie serwisów
+firmy Google. Biblioteka udostępnia API do popularnych serwisów Google
+i ma pełną obsługę komunikacji asynchronicznej.
+
 %package devel
-Summary:	Support files necessary to compile applications with libgdata
+Summary:	Header files for libgdata library
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgdata
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	gcr-devel >= 3
+Requires:	glib2-devel >= 1:2.32.0
+Requires:	gnome-online-accounts-devel >= 3.2.0
+Requires:	liboauth-devel >= 0.9.4
+Requires:	libsoup-devel >= 2.38.0
 Requires:	libsoup-gnome-devel >= 2.38.0
 Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
-Headers, and support files necessary to compile applications using
+Header files and support files necessary to compile applications using
 libgdata.
 
+%description devel -l pl.UTF-8
+Pliki nagłówkowe oraz pomocnicze potrzebne do kompilowania aplikacji
+wykorzystujących bibliotekę libgdata.
+
 %package static
-Summary:	libgdata static libraries
-Summary(pl.UTF-8):	Statyczne biblioteki libgsf
+Summary:	libgdata static library
+Summary(pl.UTF-8):	Statyczna biblioteka libgdata
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
-Package contains static libraries.
+This package contains static libgdata library.
+
+%description static -l pl.UTF-8
+Ten pakiet zawiera statyczną bibliotekę libgdata.
 
 %package apidocs
 Summary:	libgdata API documentation
+Summary(pl.UTF-8):	Dokumentacja API biblioteki libgdata
 Group:		Documentation
 Requires:	gtk-doc-common
 
 %description apidocs
 libgdata API documentation.
+
+%description apidocs -l pl.UTF-8
+Dokumentacja API biblioteki libgdata.
 
 %prep
 %setup -q
@@ -98,7 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f gdata.lang
 %defattr(644,root,root,755)
-%doc AUTHORS README NEWS
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libgdata.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgdata.so.13
 %{_libdir}/girepository-1.0/GData-0.0.typelib
