@@ -1,12 +1,12 @@
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.13.2
+Version:	0.13.3
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.13/%{name}-%{version}.tar.xz
-# Source0-md5:	8790767a3700d146e859ce870229f8e7
+# Source0-md5:	295a189784842adc80c2c3c69f36e42a
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
@@ -92,6 +92,19 @@ libgdata API documentation.
 %description apidocs -l pl.UTF-8
 Dokumentacja API biblioteki libgdata.
 
+%package -n vala-libgdata
+Summary:	libgdata API for Vala language
+Summary(pl.UTF-8):	API libgdata dla języka Vala
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+Requires:	vala >= 2:0.16
+
+%description -n vala-libgdata
+libgdata API for Vala language.
+
+%description -n vala-libgdata -l pl.UTF-8
+API libgdata dla języka Vala.
+
 %prep
 %setup -q
 
@@ -145,3 +158,8 @@ rm -rf $RPM_BUILD_ROOT
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gdata
+
+%files -n vala-libgdata
+%defattr(644,root,root,755)
+%{_datadir}/vala/vapi/libgdata.deps
+%{_datadir}/vala/vapi/libgdata.vapi
