@@ -29,7 +29,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.32.0
-Requires:	gnome-online-accounts >= 3.2.0
+Requires:	gnome-online-accounts-libs >= 3.2.0
 Requires:	liboauth >= 0.9.4
 Requires:	libsoup >= 2.38.0
 Requires:	libsoup-gnome >= 2.38.0
