@@ -1,12 +1,12 @@
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.14.3
+Version:	0.16.0
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.14/%{name}-%{version}.tar.xz
-# Source0-md5:	2d9269b5bb3eebe4fd6d0999195e60b3
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.16/%{name}-%{version}.tar.xz
+# Source0-md5:	30200bd24c04fa85fd104c1d03129161
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
@@ -15,24 +15,25 @@ BuildRequires:	gdk-pixbuf2-devel >= 2.14
 BuildRequires:	gettext-devel >= 0.17
 BuildRequires:	glib2-devel >= 1:2.32.0
 BuildRequires:	gnome-common >= 3.6.0
-BuildRequires:	gnome-online-accounts-devel >= 3.2.0
+BuildRequires:	gnome-online-accounts-devel >= 3.8
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk+3-devel >= 3.0
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool >= 0.40.0
+BuildRequires:	json-glib-devel >= 0.15
 BuildRequires:	liboauth-devel >= 0.9.4
-BuildRequires:	libsoup-devel >= 2.38.0
-BuildRequires:	libsoup-gnome-devel >= 2.38.0
+BuildRequires:	libsoup-devel >= 2.48.0
 BuildRequires:	libtool >= 2:2
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
+BuildRequires:	uhttpmock-devel
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.32.0
-Requires:	gnome-online-accounts-libs >= 3.2.0
+Requires:	gnome-online-accounts-libs >= 3.8
+Requires:	json-glib >= 0.15
 Requires:	liboauth >= 0.9.4
-Requires:	libsoup >= 2.38.0
-Requires:	libsoup-gnome >= 2.38.0
+Requires:	libsoup >= 2.48.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -54,10 +55,10 @@ Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gcr-devel >= 3
 Requires:	glib2-devel >= 1:2.32.0
-Requires:	gnome-online-accounts-devel >= 3.2.0
+Requires:	gnome-online-accounts-devel >= 3.8
+Requires:	json-glib-devel >= 0.15
 Requires:	liboauth-devel >= 0.9.4
-Requires:	libsoup-devel >= 2.38.0
-Requires:	libsoup-gnome-devel >= 2.38.0
+Requires:	libsoup-devel >= 2.48.0
 Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
@@ -141,7 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libgdata.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgdata.so.13
+%attr(755,root,root) %ghost %{_libdir}/libgdata.so.19
 %{_libdir}/girepository-1.0/GData-0.0.typelib
 
 %files devel
