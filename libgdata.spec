@@ -1,12 +1,12 @@
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.16.1
-Release:	2
+Version:	0.17.3
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.16/%{name}-%{version}.tar.xz
-# Source0-md5:	eb552a8a8482e4231a3d1baf7262e64d
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.17/%{name}-%{version}.tar.xz
+# Source0-md5:	f27471241edd3a36433b5e172e1356c2
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
@@ -27,7 +27,7 @@ BuildRequires:	libtool >= 2:2
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
 BuildRequires:	tar >= 1:1.22
-BuildRequires:	uhttpmock-devel
+BuildRequires:	uhttpmock-devel >= 0.5.0
 BuildRequires:	xz
 Requires:	glib2 >= 1:2.32.0
 Requires:	gnome-online-accounts-libs >= 3.8
@@ -142,7 +142,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_libdir}/libgdata.so.*.*.*
-%attr(755,root,root) %ghost %{_libdir}/libgdata.so.19
+%attr(755,root,root) %ghost %{_libdir}/libgdata.so.22
 %{_libdir}/girepository-1.0/GData-0.0.typelib
 
 %files devel
