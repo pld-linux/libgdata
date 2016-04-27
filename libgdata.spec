@@ -2,7 +2,7 @@ Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
 Version:	0.17.4
-Release:	2
+Release:	3
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.17/%{name}-%{version}.tar.xz
@@ -86,6 +86,9 @@ Summary:	libgdata API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libgdata
 Group:		Documentation
 Requires:	gtk-doc-common
+%if "%{_rpmversion}" >= "5"
+BuildArch:	noarch
+%endif
 
 %description apidocs
 libgdata API documentation.
