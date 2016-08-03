@@ -1,16 +1,17 @@
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.17.4
-Release:	3
+Version:	0.17.5
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.17/%{name}-%{version}.tar.xz
-# Source0-md5:	5b4f86c81757698114c5125fed3f5ff7
+# Source0-md5:	3a1506d2bbdd68a98378312953a02b06
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	gcr-devel >= 3
+# for tests only
 BuildRequires:	gdk-pixbuf2-devel >= 2.14
 BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	glib2-devel >= 1:2.32.0
