@@ -1,12 +1,12 @@
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.17.7
+Version:	0.17.8
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.17/%{name}-%{version}.tar.xz
-# Source0-md5:	dda713184128444314d17cfe1a73b06d
+# Source0-md5:	7a67dde280078bf12de3f98bd21c4931
 URL:		http://live.gnome.org/libgdata
 BuildRequires:	autoconf >= 2.65
 BuildRequires:	automake >= 1:1.9
@@ -14,7 +14,7 @@ BuildRequires:	gcr-devel >= 3
 # for tests only
 BuildRequires:	gdk-pixbuf2-devel >= 2.14
 BuildRequires:	gettext-tools >= 0.17
-BuildRequires:	glib2-devel >= 1:2.32.0
+BuildRequires:	glib2-devel >= 1:2.38.0
 BuildRequires:	gnome-common >= 3.6.0
 BuildRequires:	gnome-online-accounts-devel >= 3.8
 BuildRequires:	gobject-introspection-devel >= 0.9.7
@@ -31,7 +31,7 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	uhttpmock-devel >= 0.5.0
 BuildRequires:	vala-gnome-online-accounts
 BuildRequires:	xz
-Requires:	glib2 >= 1:2.32.0
+Requires:	glib2 >= 1:2.38.0
 Requires:	gnome-online-accounts-libs >= 3.8
 Requires:	json-glib >= 0.15
 Requires:	liboauth >= 0.9.4
@@ -56,7 +56,7 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki libgdata
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	gcr-devel >= 3
-Requires:	glib2-devel >= 1:2.32.0
+Requires:	glib2-devel >= 1:2.38.0
 Requires:	gnome-online-accounts-devel >= 3.8
 Requires:	json-glib-devel >= 0.15
 Requires:	liboauth-devel >= 0.9.4
