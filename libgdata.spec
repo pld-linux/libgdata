@@ -19,11 +19,11 @@ BuildRequires:	gnome-common >= 3.6.0
 BuildRequires:	gnome-online-accounts-devel >= 3.8
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk+3-devel >= 3.0
-BuildRequires:	gtk-doc >= 1.14
+BuildRequires:	gtk-doc >= 1.25
 BuildRequires:	intltool >= 0.40.0
 BuildRequires:	json-glib-devel >= 0.15
 BuildRequires:	liboauth-devel >= 0.9.4
-BuildRequires:	libsoup-devel >= 2.48.0
+BuildRequires:	libsoup-devel >= 2.56.0
 BuildRequires:	libtool >= 2:2
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	pkgconfig
@@ -35,7 +35,7 @@ Requires:	glib2 >= 1:2.38.0
 Requires:	gnome-online-accounts-libs >= 3.8
 Requires:	json-glib >= 0.15
 Requires:	liboauth >= 0.9.4
-Requires:	libsoup >= 2.48.0
+Requires:	libsoup >= 2.56.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -60,7 +60,7 @@ Requires:	glib2-devel >= 1:2.38.0
 Requires:	gnome-online-accounts-devel >= 3.8
 Requires:	json-glib-devel >= 0.15
 Requires:	liboauth-devel >= 0.9.4
-Requires:	libsoup-devel >= 2.48.0
+Requires:	libsoup-devel >= 2.56.0
 Requires:	libxml2-devel >= 1:2.6.26
 
 %description devel
