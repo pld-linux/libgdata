@@ -1,32 +1,31 @@
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.17.9
+Version:	0.17.10
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.17/%{name}-%{version}.tar.xz
-# Source0-md5:	cd41fec52a0f0ba999eb60025e0ac806
-URL:		https://wiki.gnome.org/action/show/Projects/libgdata
-BuildRequires:	autoconf >= 2.65
-BuildRequires:	automake >= 1:1.9
+# Source0-md5:	d858d411ad394c275643b14993dfeed4
+Patch0:		%{name}-soname.patch
+URL:		https://wiki.gnome.org/Projects/libgdata
 BuildRequires:	gcr-devel >= 3
 # for tests only
 BuildRequires:	gdk-pixbuf2-devel >= 2.14
 BuildRequires:	gettext-tools >= 0.17
 BuildRequires:	glib2-devel >= 1:2.44.0
-BuildRequires:	gnome-common >= 3.6.0
 BuildRequires:	gnome-online-accounts-devel >= 3.8
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk+3-devel >= 3.0
 BuildRequires:	gtk-doc >= 1.25
-BuildRequires:	intltool >= 0.40.0
 BuildRequires:	json-glib-devel >= 0.15
 BuildRequires:	liboauth-devel >= 0.9.4
 BuildRequires:	libsoup-devel >= 2.56.0
-BuildRequires:	libtool >= 2:2
 BuildRequires:	libxml2-devel >= 1:2.6.26
+BuildRequires:	meson >= 0.50.0
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	uhttpmock-devel >= 0.5.0
 BuildRequires:	vala
@@ -117,29 +116,21 @@ API libgdata dla języka Vala.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-%{__gtkdocize}
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--enable-gtk-doc \
-	--with-html-dir=%{_gtkdocdir} \
-	--disable-silent-rules
-%{__make}
+%meson build \
+	-Dinstalled_tests=false \
+	-Dman=true
+
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}/libgdata.la
-
-%find_lang gdata
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -147,9 +138,9 @@ rm -rf $RPM_BUILD_ROOT
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f gdata.lang
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_libdir}/libgdata.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libgdata.so.22
 %{_libdir}/girepository-1.0/GData-0.0.typelib

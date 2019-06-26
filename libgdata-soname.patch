@@ -1,0 +1,31 @@
+--- libgdata-0.17.10/meson.build.orig	2019-06-25 14:09:09.000000000 +0200
++++ libgdata-0.17.10/meson.build	2019-06-26 18:51:01.522940933 +0200
+@@ -37,7 +37,8 @@
+ current = 26
+ revision = 0
+ age = 4
+-gdata_soversion = '@0@.@1@.@2@'.format(current - age, age, revision)
++gdata_libversion = '@0@.@1@.@2@'.format(current - age, age, revision)
++gdata_soversion = '@0@'.format(current - age)
+ 
+ top_inc_dir = include_directories('.')
+ 
+--- libgdata-0.17.10/gdata/meson.build.orig	2019-06-25 14:09:09.000000000 +0200
++++ libgdata-0.17.10/gdata/meson.build	2019-06-26 18:51:00.606279233 +0200
+@@ -134,7 +134,7 @@
+ symbol_map = meson.current_source_dir() / 'symbol.map'
+ ldflags = cc.get_supported_link_arguments('-Wl,--version-script,' + symbol_map)
+ 
+-libgdata_lib = shared_library(
++libgdata_lib = library(
+   'gdata',
+   include_directories: incs,
+   sources: sources + enum_headers + marshal_files,
+@@ -142,6 +142,7 @@
+   link_args: ldflags,
+   link_depends: symbol_map,
+   install: true,
++  version: gdata_libversion,
+   soversion: gdata_soversion,
+   gnu_symbol_visibility: 'default',
+ )
