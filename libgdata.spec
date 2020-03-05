@@ -1,16 +1,17 @@
 #
 # Conditional build:
 %bcond_without	static_libs	# static library
+%bcond_without	oauth1		# OAuth 1.0 support (deprecated)
 
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.17.11
+Version:	0.17.12
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.17/%{name}-%{version}.tar.xz
-# Source0-md5:	7b98e9059255d8a2fb147c4e727230a8
+# Source0-md5:	9d5692a2308bb949af801be66989e164
 URL:		https://wiki.gnome.org/Projects/libgdata
 BuildRequires:	gcr-devel >= 3
 # for tests only
@@ -22,7 +23,7 @@ BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk+3-devel >= 3.0
 BuildRequires:	gtk-doc >= 1.25
 BuildRequires:	json-glib-devel >= 0.15
-BuildRequires:	liboauth-devel >= 0.9.4
+%{?with_oauth1:BuildRequires:	liboauth-devel >= 0.9.4}
 BuildRequires:	libsoup-devel >= 2.56.0
 BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	meson >= 0.50.0
@@ -38,7 +39,7 @@ BuildRequires:	xz
 Requires:	glib2 >= 1:2.44.0
 Requires:	gnome-online-accounts-libs >= 3.8
 Requires:	json-glib >= 0.15
-Requires:	liboauth >= 0.9.4
+%{?with_oauth1:Requires:	liboauth >= 0.9.4}
 Requires:	libsoup >= 2.56.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,7 +64,7 @@ Requires:	gcr-devel >= 3
 Requires:	glib2-devel >= 1:2.44.0
 Requires:	gnome-online-accounts-devel >= 3.8
 Requires:	json-glib-devel >= 0.15
-Requires:	liboauth-devel >= 0.9.4
+%{?with_oauth1:Requires:	liboauth-devel >= 0.9.4}
 Requires:	libsoup-devel >= 2.56.0
 Requires:	libxml2-devel >= 1:2.6.26
 
@@ -128,7 +129,8 @@ API libgdata dla języka Vala.
 %build
 %meson build \
 	-Dinstalled_tests=false \
-	-Dman=true
+	-Dman=true \
+	%{?with_oauth1:-Doauth1=enabled}
 
 %ninja_build -C build
 
