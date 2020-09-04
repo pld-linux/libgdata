@@ -1,17 +1,18 @@
 #
 # Conditional build:
+%bcond_without	apidocs		# API documentation
 %bcond_without	static_libs	# static library
 %bcond_without	oauth1		# OAuth 1.0 support (deprecated)
 
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.17.12
+Version:	0.17.13
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/libgdata/0.17/%{name}-%{version}.tar.xz
-# Source0-md5:	9d5692a2308bb949af801be66989e164
+# Source0-md5:	b1bebb5951f8ef9782cb64c2f2a3b8ad
 URL:		https://wiki.gnome.org/Projects/libgdata
 BuildRequires:	gcr-devel >= 3
 # for tests only
@@ -21,7 +22,7 @@ BuildRequires:	glib2-devel >= 1:2.44.0
 BuildRequires:	gnome-online-accounts-devel >= 3.8
 BuildRequires:	gobject-introspection-devel >= 0.9.7
 BuildRequires:	gtk+3-devel >= 3.0
-BuildRequires:	gtk-doc >= 1.25
+%{?with_apidocs:BuildRequires:	gtk-doc >= 1.25}
 BuildRequires:	json-glib-devel >= 0.15
 %{?with_oauth1:BuildRequires:	liboauth-devel >= 0.9.4}
 BuildRequires:	libsoup-devel >= 2.56.0
@@ -93,7 +94,7 @@ Summary:	libgdata API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libgdata
 Group:		Documentation
 Requires:	gtk-doc-common
-%if "%{_rpmversion}" >= "5"
+%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
 %endif
 
@@ -109,7 +110,7 @@ Summary(pl.UTF-8):	API libgdata dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.16
-%if "%{_rpmversion}" >= "5"
+%if "%{_rpmversion}" >= "4.6"
 BuildArch:	noarch
 %endif
 
@@ -128,6 +129,7 @@ API libgdata dla języka Vala.
 
 %build
 %meson build \
+	%{?with_apidocs:-Dgtk_doc=true} \
 	-Dinstalled_tests=false \
 	-Dman=true \
 	%{?with_oauth1:-Doauth1=enabled}
@@ -165,9 +167,11 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_libdir}/libgdata.a
 
+%if %{with apidocs}
 %files apidocs
 %defattr(644,root,root,755)
 %{_gtkdocdir}/gdata
+%endif
 
 %files -n vala-libgdata
 %defattr(644,root,root,755)
