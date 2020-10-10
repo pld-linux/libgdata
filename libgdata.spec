@@ -163,9 +163,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/libgdata
 %{_pkgconfigdir}/libgdata.pc
 
+%if %{with static_libs}
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/libgdata.a
+%endif
 
 %if %{with apidocs}
 %files apidocs
