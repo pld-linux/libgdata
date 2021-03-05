@@ -7,12 +7,12 @@
 Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
-Version:	0.18.0
+Version:	0.18.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libgdata/0.18/%{name}-%{version}.tar.xz
-# Source0-md5:	1b846d2fb05edce09cf6e55e9cceff87
+# Source0-md5:	92b058d1a0af5d1b96c86c21820f1eff
 URL:		https://wiki.gnome.org/Projects/libgdata
 BuildRequires:	gcr-devel >= 3
 # for tests only
@@ -30,6 +30,7 @@ BuildRequires:	libxml2-devel >= 1:2.6.26
 BuildRequires:	meson >= 0.50.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 1.752
 BuildRequires:	sed >= 4.0
 BuildRequires:	tar >= 1:1.22
@@ -94,7 +95,7 @@ Summary:	libgdata API documentation
 Summary(pl.UTF-8):	Dokumentacja API biblioteki libgdata
 Group:		Documentation
 Requires:	gtk-doc-common
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description apidocs
 libgdata API documentation.
@@ -108,7 +109,7 @@ Summary(pl.UTF-8):	API libgdata dla języka Vala
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 Requires:	vala >= 2:0.16
-%{?noarchpackage}
+BuildArch:	noarch
 
 %description -n vala-libgdata
 libgdata API for Vala language.
