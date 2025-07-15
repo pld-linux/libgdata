@@ -8,7 +8,7 @@ Summary:	GData access library
 Summary(pl.UTF-8):	Biblioteka dostępu poprzez protokół GData
 Name:		libgdata
 Version:	0.18.1
-Release:	4
+Release:	5
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://download.gnome.org/sources/libgdata/0.18/%{name}-%{version}.tar.xz
@@ -125,18 +125,18 @@ API libgdata dla języka Vala.
 %endif
 
 %build
-%meson build \
+%meson \
 	%{?with_apidocs:-Dgtk_doc=true} \
 	-Dinstalled_tests=false \
 	-Dman=true \
 	%{?with_oauth1:-Doauth1=enabled}
 
-%ninja_build -C build
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%ninja_install -C build
+%meson_install
 
 %find_lang gdata
 
