@@ -1,0 +1,13 @@
+--- libgdata-0.18.1/demos/calendar/calendar-cli.c.orig	2021-03-05 16:22:37.347057800 +0100
++++ libgdata-0.18.1/demos/calendar/calendar-cli.c	2025-07-20 10:26:05.125376212 +0200
+@@ -43,8 +43,9 @@ static gchar *
+ tv_to_iso8601_date (GTimeVal *tv)
+ {
+ 	struct tm *tm;
++	time_t tv_sec = tv->tv_sec;
+ 
+-	tm = gmtime (&tv->tv_sec);
++	tm = gmtime (&tv_sec);
+ 
+ 	return g_strdup_printf ("%04d-%02d-%02d",
+ 	                        tm->tm_year + 1900,
